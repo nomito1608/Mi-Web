@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quejas y Sugerencias - Tellcenter</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dynamic-banner"><span id="dynamic-text" class="banner-text">Cargando novedades...</span></div>
+
+    <header class="public-header">
+        <a href="index.html" class="logo-freelance">TELLCENTER <span>HUB</span></a>
+        <nav class="public-nav">
+            <a href="servicios.html">Servicios</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="acceso_empleados.html" class="btn-login">Acceso Empleados</a>
+        </nav>
+    </header>
+
+    <div class="page-banner">
+        <h1>TELLCENTER te escucha</h1>
+        <p>Tu opinión nos ayuda a mejorar el ambiente de trabajo.</p>
+    </div>
+
+    <div class="feedback-section">
+        <form id="form-quejas" class="feedback-form">
+            <label for="q-nombre">Nombre (opcional)</label>
+            <input type="text" id="q-nombre" placeholder="Déjalo en blanco para comentar de forma anónima">
+
+            <label for="q-equipo">Equipo / Departamento</label>
+            <select id="q-equipo">
+                <option>Cloud & Infraestructura</option>
+                <option>Soporte Técnico</option>
+                <option>Diseño & E-commerce</option>
+                <option>Consultoría & Proyectos</option>
+                <option>Otro</option>
+            </select>
+
+            <label for="q-tipo">Tipo de comentario</label>
+            <select id="q-tipo">
+                <option>Sugerencia</option>
+                <option>Idea</option>
+                <option>Queja</option>
+                <option>Felicitación</option>
+            </select>
+
+            <label for="q-mensaje">Tu mensaje</label>
+            <textarea id="q-mensaje" rows="4" placeholder="Cuéntanos tu idea, queja o sugerencia..."></textarea>
+
+            <button type="submit" class="btn-primary" style="width: 100%;">Enviar</button>
+        </form>
+
+        <div id="buzon-lista" style="margin-top: 40px;">
+            <h3 style="color: var(--secondary);">Buzón de comentarios recientes</h3>
+            <div id="buzon-items"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* =========================================================
+   Tellcenter - Control Horario (Marcar entrada/salida)
+   Se carga DESPUÉS de style_portal_empleado.css
+   ========================================================= */
+
+.ch-page {
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+    padding: 30px 40px;
+}
+
+.ch-card {
+    width: 100%; max-width: 760px;
+    background: var(--card); border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 31, 63, 0.06);
+}
+.ch-title {
+    font-size: 0.95em; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--navy);
+}
+
+/* ===== RELOJ ===== */
+.ch-clock { padding: 30px 40px 34px; text-align: center; }
+.ch-clock .ch-title { text-align: left; }
+
+/* Estado actual (el color cambia según data-color) */
+.ch-state {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 10px; font-weight: 600; color: var(--c);
+    --c: #8a99a6;
+}
+.ch-state i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.ch-state[data-color="on"]    { --c: #0b8a5f; }
+.ch-state[data-color="pause"] { --c: #a86200; }
+.ch-state[data-color="call"]  { --c: #2459c9; }
+.ch-state[data-color="stop"]  { --c: #c0392b; }
+.ch-state[data-color="on"] i,
+.ch-state[data-color="pause"] i,
+.ch-state[data-color="call"] i { animation: blink 1.4s infinite; }
+@keyframes blink { 50% { opacity: 0.3; } }
+
+.ch-time {
+    font-size: 4em; font-weight: 500; letter-spacing: 1px; line-height: 1.1;
+    color: var(--navy);
+    font-variant-numeric: tabular-nums;   /* Los números no "bailan" */
+}
+.ch-info { color: #8a99a6; font-size: 0.9em; margin-bottom: 22px; min-height: 1.3em; }
+
+/* ===== BOTONES DE ESTADO ===== */
+.ch-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; }
+.ch-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-size: 0.78em; color: var(--muted);
+}
+.ch-btn[hidden] { display: none; }
+.ch-ico {
+    width: 58px; height: 58px; border-radius: 50%;
+    border: 3px solid var(--accent-dark); color: var(--accent-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4em;
+    transition: transform 0.2s, background 0.2s;
+}
+.ch-btn:hover .ch-ico { transform: scale(1.08); background: #e3f7f9; }
+
+/* Estado activo (ej. estás en Break) */
+.ch-btn.activo .ch-ico { background: #fff4de; border-color: #f59e0b; }
+.ch-btn.activo .ch-label { color: #a86200; font-weight: 600; }
+
+/* Botón Play: Iniciar / Volver a trabajar */
+.ch-play .ch-ico { border-color: #10b981; color: #10b981; }
+.ch-play:hover .ch-ico { background: #e6f8f1; }
+.ch-play .ch-label { color: #0b8a5f; font-weight: 600; }
+
+/* Botón Finalizar */
+.ch-stop { margin-left: 14px; }
+.ch-stop .ch-ico { border-color: #c0392b; color: #c0392b; }
+.ch-stop:hover .ch-ico { background: #fdecec; }
+
+/* ===== ÚLTIMOS FICHAJES ===== */
+.ch-list { padding: 22px 30px; }
+.ch-list .ch-title { margin-bottom: 8px; }
+.ch-ev {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 0; border-bottom: 1px solid #edf1f4;
+    animation: evIn 0.3s ease;
+}
+.ch-ev:last-child { border-bottom: none; }
+@keyframes evIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.ch-ev b { font-weight: 500; }
+.ch-ev small { display: block; color: #8a99a6; }
+.ch-ev-time { margin-left: auto; color: #8a99a6; font-size: 0.88em; white-space: nowrap; }
+.ch-ev-ico {
+    width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+}
+.ev-work  { background: #e6f8f1; color: #0b8a5f; }
+.ev-pause { background: #fff4de; }
+.ev-call  { background: #e7f0ff; }
+.ev-stop  { background: #fde8e8; color: #c0392b; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .ch-page { padding: 20px; }
+    .ch-clock { padding: 24px 20px; }
+    .ch-time { font-size: 3em; }
+    .ch-btns { gap: 12px; }
+    .ch-ico { width: 50px; height: 50px; font-size: 1.2em; }
+    .ch-stop { margin-left: 0; }
+    .ch-list { padding: 20px; }
+}

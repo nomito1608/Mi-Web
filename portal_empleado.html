@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias | Portal de Empleados Tellcenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_portal_empleado.css">
+</head>
+<body>
+
+    <!-- Menú móvil sin JavaScript -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <!-- Barra superior (solo en celular) -->
+    <header class="mobile-bar">
+        <img src="img/logo-tellcenter-blanco.png" alt="Tellcenter">
+        <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú"><span></span></label>
+    </header>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <a href="portal_empleado.html" class="side-logo">
+            <img src="img/logo-tellcenter-blanco.png" alt="Tellcenter">
+        </a>
+
+        <nav class="nav">
+            <details>
+                <summary><span class="ico">🔐</span>Accesos<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="#">Mi perfil</a>
+                    <a href="#">Roles y permisos <span class="role">Manager</span></a>
+                </div>
+            </details>
+
+            <details open>
+                <summary><span class="ico">📰</span>Portal de Noticias<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="portal_empleado.html" class="active">Noticias</a>
+                    <a href="#">Recursos</a>
+                    <a href="#modal-buzon">Buzón de sugerencias <span class="popup">↗</span></a>
+                    <a href="#modal-referido">Referir a un amigo <span class="popup">↗</span></a>
+                </div>
+            </details>
+
+            <details>
+                <summary><span class="ico">⏱️</span>Control de Horarios<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="control_horario.html">Marcar entrada/salida</a>
+                    <a href="#modal-permiso">Solicitar permisos <span class="popup">↗</span></a>
+                    <a href="supervisor_vista.html">Vista Supervisor <span class="role">Supervisor</span></a>
+                    <a href="permisos_vista.html">Aprobar permisos <span class="role">Supervisor</span></a>
+                </div>
+            </details>
+
+            <details>
+                <summary><span class="ico">📦</span>Inventario<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="#">Equipos asignados</a>
+                    <a href="#">Solicitar equipo</a>
+                </div>
+            </details>
+        </nav>
+
+        <div class="side-user">
+            <div class="avatar">DV</div>
+            <div>Diego V.<small>Soporte Técnico</small></div>
+        </div>
+        <div class="side-bottom">
+            <a href="login.html" title="Cerrar sesión">⏻</a>
+            <a href="#" title="Notificaciones">🔔</a>
+            <a href="#" title="Ayuda">❓</a>
+        </div>
+    </aside>
+
+    <!-- ===== CONTENIDO: NOTICIAS ===== -->
+    <main class="content">
+
+        <!-- Filtros sin JavaScript: cada pestaña es un radio -->
+        <input type="radio" name="filtro" id="f-todas" class="filter" checked>
+        <input type="radio" name="filtro" id="f-generales" class="filter">
+        <input type="radio" name="filtro" id="f-equipo" class="filter">
+
+        <div class="topbar">
+            <h1>Noticias</h1>
+            <input type="search" class="search" placeholder="🔍 Buscar noticias…">
+        </div>
+
+        <div class="tabs">
+            <label for="f-todas" class="tab tab-todas">Todas</label>
+            <label for="f-generales" class="tab tab-generales">Generales</label>
+            <label for="f-equipo" class="tab tab-equipo">Mi equipo: Soporte Técnico <span class="count">4</span></label>
+        </div>
+
+        <div class="feed">
+            <article class="item general">
+                <div class="date"><b>15</b><small>Sep</small></div>
+                <div>
+                    <span class="pill">General</span>
+                    <h3>Nueva política de teletrabajo a partir de octubre</h3>
+                    <p>Todos los equipos podrán trabajar hasta 3 días a la semana en remoto. Revisa la guía completa en Recursos.</p>
+                </div>
+            </article>
+
+            <article class="item team">
+                <div class="date"><b>10</b><small>Sep</small></div>
+                <div>
+                    <span class="pill pill-team">Soporte Técnico</span>
+                    <h3>Nuevo sistema de tickets reduce los tiempos de respuesta</h3>
+                    <p>El equipo de Soporte Técnico migró a una nueva plataforma de tickets que permite priorizar incidentes críticos. El tiempo promedio de primera respuesta ya baja de los 15 minutos.</p>
+                </div>
+            </article>
+
+            <article class="item general">
+                <div class="date"><b>05</b><small>Sep</small></div>
+                <div>
+                    <span class="pill">General</span>
+                    <h3>Damos la bienvenida a 6 nuevos integrantes</h3>
+                    <p>Este mes se suman compañeros a Cloud, Diseño y Soporte. Conócelos en la sección de Nuevos empleados.</p>
+                </div>
+            </article>
+
+            <article class="item team">
+                <div class="date"><b>02</b><small>Sep</small></div>
+                <div>
+                    <span class="pill pill-team">Soporte Técnico</span>
+                    <h3>Arranca el turno nocturno de soporte: cobertura 24/7</h3>
+                    <p>Los clientes con plan premium ya cuentan con atención técnica también en horario nocturno, gracias a la incorporación de dos nuevos agentes al equipo.</p>
+                </div>
+            </article>
+
+            <article class="item general">
+                <div class="date"><b>28</b><small>Ago</small></div>
+                <div>
+                    <span class="pill">General</span>
+                    <h3>Jornada de voluntariado: inscripciones abiertas</h3>
+                    <p>Súmate a la próxima actividad de responsabilidad social. Los detalles están en Recursos › Voluntarios.</p>
+                </div>
+            </article>
+
+            <article class="item team">
+                <div class="date"><b>20</b><small>Ago</small></div>
+                <div>
+                    <span class="pill pill-team">Soporte Técnico</span>
+                    <h3>El equipo se certifica en resolución de incidentes de red</h3>
+                    <p>Todo el equipo de Soporte Técnico completó una capacitación certificada en diagnóstico y resolución de fallas de conectividad, reforzando la calidad de la atención remota.</p>
+                </div>
+            </article>
+
+            <article class="item team">
+                <div class="date"><b>05</b><small>Ago</small></div>
+                <div>
+                    <span class="pill pill-team">Soporte Técnico</span>
+                    <h3>Soporte Técnico logra su mejor calificación de satisfacción interna</h3>
+                    <p>La última encuesta interna reflejó un 96% de satisfacción con la atención del equipo de Soporte Técnico, la nota más alta registrada hasta ahora.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- =========================================================
+         VENTANAS EMERGENTES
+         Se abren con un enlace a su id (ej. href="#modal-buzon")
+         y se cierran con href="#". No usan JavaScript.
+         ========================================================= -->
+
+    <!-- ===== BUZÓN DE SUGERENCIAS ===== -->
+    <div class="modal-overlay" id="modal-buzon">
+        <a href="#" class="modal-backdrop" aria-label="Cerrar"></a>
+        <form class="modal" action="#">
+            <div class="modal-head">
+                <h2>💬 Buzón de sugerencias</h2>
+                <p>Tu opinión nos ayuda a mejorar el ambiente de trabajo.</p>
+                <a href="#" class="modal-close" aria-label="Cerrar">×</a>
+            </div>
+            <div class="modal-body">
+                <span class="modal-label">Tipo de comentario</span>
+                <div class="chips">
+                    <input type="radio" name="b-tipo" id="b-sugerencia" checked><label for="b-sugerencia">Sugerencia</label>
+                    <input type="radio" name="b-tipo" id="b-idea"><label for="b-idea">Idea</label>
+                    <input type="radio" name="b-tipo" id="b-queja"><label for="b-queja">Queja</label>
+                    <input type="radio" name="b-tipo" id="b-felicitacion"><label for="b-felicitacion">Felicitación</label>
+                </div>
+
+                <label class="modal-label" for="b-equipo">Equipo / Departamento</label>
+                <select id="b-equipo">
+                    <option>Soporte Técnico</option>
+                    <option>Cloud &amp; Infraestructura</option>
+                    <option>Diseño &amp; E-commerce</option>
+                    <option>Consultoría &amp; Proyectos</option>
+                    <option>Otro</option>
+                </select>
+
+                <label class="modal-label" for="b-mensaje">Tu mensaje</label>
+                <textarea id="b-mensaje" rows="4" placeholder="Cuéntanos tu idea, queja o sugerencia…"></textarea>
+
+                <label class="check"><input type="checkbox"> Enviar de forma anónima</label>
+            </div>
+            <div class="modal-foot">
+                <a href="#" class="btn-ghost">Cancelar</a>
+                <a href="#" class="btn-main">Enviar</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- ===== REFERIR A UN AMIGO ===== -->
+    <div class="modal-overlay" id="modal-referido">
+        <a href="#" class="modal-backdrop" aria-label="Cerrar"></a>
+        <form class="modal" action="#">
+            <div class="modal-head">
+                <h2>🤝 Refiere a un amigo</h2>
+                <p>¿Conoces a alguien ideal para Tellcenter? Compártenos su perfil.</p>
+                <a href="#" class="modal-close" aria-label="Cerrar">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div>
+                        <label class="modal-label" for="r-nombre">Nombre completo</label>
+                        <input type="text" id="r-nombre" placeholder="Nombre del referido">
+                    </div>
+                    <div>
+                        <label class="modal-label" for="r-telefono">Teléfono</label>
+                        <input type="tel" id="r-telefono" placeholder="+503 ____-____">
+                    </div>
+                </div>
+
+                <label class="modal-label" for="r-correo">Correo electrónico</label>
+                <input type="email" id="r-correo" placeholder="correo@ejemplo.com">
+
+                <label class="modal-label" for="r-puesto">Puesto de interés</label>
+                <select id="r-puesto">
+                    <option>Agente de Soporte Técnico</option>
+                    <option>Cloud &amp; Infraestructura</option>
+                    <option>Diseño &amp; E-commerce</option>
+                    <option>Consultoría &amp; Proyectos</option>
+                    <option>Otro</option>
+                </select>
+
+                <label class="drop" for="r-cv">📎 Arrastra aquí su CV o <b>selecciona un archivo</b></label>
+                <input type="file" id="r-cv" class="file-hidden">
+
+                <label class="modal-label" for="r-comentario">¿Por qué lo recomiendas? (opcional)</label>
+                <textarea id="r-comentario" rows="2" placeholder="Comentario breve…"></textarea>
+            </div>
+            <div class="modal-foot">
+                <a href="#" class="btn-ghost">Cancelar</a>
+                <a href="#" class="btn-main">Enviar referido</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- ===== SOLICITAR PERMISO ===== -->
+    <div class="modal-overlay" id="modal-permiso">
+        <a href="#" class="modal-backdrop" aria-label="Cerrar"></a>
+        <form class="modal" action="#">
+            <div class="modal-head">
+                <h2>📝 Solicitar permiso</h2>
+                <p>Tu solicitud llegará como ticket a tu supervisor.</p>
+                <a href="#" class="modal-close" aria-label="Cerrar">×</a>
+            </div>
+            <div class="modal-body">
+                <span class="modal-label">Tipo de permiso</span>
+                <div class="chips">
+                    <input type="radio" name="p-tipo" id="p-vacaciones" checked><label for="p-vacaciones">🌴 Vacaciones</label>
+                    <input type="radio" name="p-tipo" id="p-medico"><label for="p-medico">🏥 Médico</label>
+                    <input type="radio" name="p-tipo" id="p-personal"><label for="p-personal">👤 Personal</label>
+                    <input type="radio" name="p-tipo" id="p-otro"><label for="p-otro">📄 Otro</label>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label class="modal-label" for="p-desde">Desde</label>
+                        <input type="date" id="p-desde" value="2026-10-06">
+                    </div>
+                    <div>
+                        <label class="modal-label" for="p-hasta">Hasta</label>
+                        <input type="date" id="p-hasta" value="2026-10-08">
+                    </div>
+                </div>
+
+                <span class="modal-label">Duración</span>
+                <div class="chips">
+                    <input type="radio" name="p-duracion" id="p-completo" checked><label for="p-completo">Día completo</label>
+                    <input type="radio" name="p-duracion" id="p-am"><label for="p-am">Medio día (AM)</label>
+                    <input type="radio" name="p-duracion" id="p-pm"><label for="p-pm">Medio día (PM)</label>
+                </div>
+
+                <label class="modal-label" for="p-motivo">Motivo</label>
+                <textarea id="p-motivo" rows="3" placeholder="Describe brevemente el motivo…"></textarea>
+
+                <p class="modal-note">ℹ️ Te quedan <b>12 días</b> de vacaciones · Se enviará a <b>Carlos Velado</b></p>
+            </div>
+            <div class="modal-foot">
+                <a href="#" class="btn-ghost">Cancelar</a>
+                <a href="#" class="btn-main">Enviar solicitud</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

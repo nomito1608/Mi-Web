@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcar entrada/salida | Portal de Empleados Tellcenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 1) Estilos base del portal: sidebar, colores y ventanas emergentes -->
+    <link rel="stylesheet" href="css/style_portal_empleado.css">
+    <!-- 2) Estilos propios de esta vista -->
+    <link rel="stylesheet" href="css/style_control_horario.css">
+</head>
+<body>
+
+    <!-- Menú móvil sin JavaScript -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <!-- Barra superior (solo en celular) -->
+    <header class="mobile-bar">
+        <img src="img/logo-tellcenter-blanco.png" alt="Tellcenter">
+        <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú"><span></span></label>
+    </header>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <a href="portal_empleado.html" class="side-logo">
+            <img src="img/logo-tellcenter-blanco.png" alt="Tellcenter">
+        </a>
+
+        <nav class="nav">
+            <details>
+                <summary><span class="ico">🔐</span>Accesos<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="#">Mi perfil</a>
+                    <a href="#">Roles y permisos <span class="role">Manager</span></a>
+                </div>
+            </details>
+
+            <details>
+                <summary><span class="ico">📰</span>Portal de Noticias<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="portal_empleado.html">Noticias</a>
+                    <a href="#">Recursos</a>
+                    <a href="portal_empleado.html#modal-buzon">Buzón de sugerencias <span class="popup">↗</span></a>
+                    <a href="portal_empleado.html#modal-referido">Referir a un amigo <span class="popup">↗</span></a>
+                </div>
+            </details>
+
+            <details open>
+                <summary><span class="ico">⏱️</span>Control de Horarios<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="control_horario.html" class="active">Marcar entrada/salida</a>
+                    <a href="portal_empleado.html#modal-permiso">Solicitar permisos <span class="popup">↗</span></a>
+                    <a href="supervisor_vista.html">Vista Supervisor <span class="role">Supervisor</span></a>
+                    <a href="permisos_vista.html">Aprobar permisos <span class="role">Supervisor</span></a>
+                </div>
+            </details>
+
+            <details>
+                <summary><span class="ico">📦</span>Inventario<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="#">Equipos asignados</a>
+                    <a href="#">Solicitar equipo</a>
+                </div>
+            </details>
+        </nav>
+
+        <div class="side-user">
+            <div class="avatar">DV</div>
+            <div>Diego V.<small>Soporte Técnico</small></div>
+        </div>
+        <div class="side-bottom">
+            <a href="login.html" title="Cerrar sesión">⏻</a>
+            <a href="#" title="Notificaciones">🔔</a>
+            <a href="#" title="Ayuda">❓</a>
+        </div>
+    </aside>
+
+    <!-- ===== CONTENIDO: CONTROL HORARIO ===== -->
+    <main class="content ch-page">
+
+        <!-- Reloj y botones de estado -->
+        <section class="ch-card ch-clock">
+            <h2 class="ch-title">Empieza aquí tu jornada</h2>
+
+            <div class="ch-state" id="ch-state" data-color="idle">
+                <i></i><span id="ch-state-text">Jornada sin iniciar</span>
+            </div>
+            <div class="ch-time" id="ch-time">00:00:00</div>
+            <p class="ch-info" id="ch-info">Presiona ▶ para iniciar tu jornada</p>
+
+            <div class="ch-btns">
+                <!-- El texto de este botón cambia: "Iniciar jornada" / "Volver a trabajar" -->
+                <button type="button" class="ch-btn ch-play" data-estado="trabajando">
+                    <span class="ch-ico">▶</span><span class="ch-label" id="ch-play-label">Iniciar jornada</span>
+                </button>
+                <button type="button" class="ch-btn" data-estado="pausa" hidden>
+                    <span class="ch-ico">⏸</span><span class="ch-label">Pausa</span>
+                </button>
+                <button type="button" class="ch-btn" data-estado="break" hidden>
+                    <span class="ch-ico">☕</span><span class="ch-label">Break</span>
+                </button>
+                <button type="button" class="ch-btn" data-estado="almuerzo" hidden>
+                    <span class="ch-ico">🍽️</span><span class="ch-label">Almuerzo</span>
+                </button>
+                <button type="button" class="ch-btn" data-estado="reunion" hidden>
+                    <span class="ch-ico">👥</span><span class="ch-label">Reunión</span>
+                </button>
+                <button type="button" class="ch-btn" data-estado="personal" hidden>
+                    <span class="ch-ico">🚶</span><span class="ch-label">Personal</span>
+                </button>
+                <button type="button" class="ch-btn ch-stop" data-estado="finalizar" hidden>
+                    <span class="ch-ico">⏹</span><span class="ch-label">Finalizar</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Historial de fichajes (los nuevos se agregan arriba) -->
+        <section class="ch-card ch-list">
+            <h2 class="ch-title">Últimos fichajes</h2>
+            <div id="ch-fichajes">
+                <div class="ch-ev">
+                    <span class="ch-ev-ico ev-stop">⏹</span>
+                    <div><b>Finaliza jornada</b><small>8 h 05 min trabajadas</small></div>
+                    <span class="ch-ev-time">Ayer 05:05 PM</span>
+                </div>
+                <div class="ch-ev">
+                    <span class="ch-ev-ico ev-work">▶</span>
+                    <div><b>Inicia jornada</b><small>Desde el portal</small></div>
+                    <span class="ch-ev-time">Ayer 08:00 AM</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/control_horario.js"></script>
+</body>
+</html>

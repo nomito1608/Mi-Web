@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tellcenter | Soluciones Digitales y Asistencia Remota</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER (banner de novedades + navegación) ===== -->
+    <header class="site-header">
+        <!-- Banner dinámico: rota solo con CSS -->
+        <div class="announce">
+            <span>🚀 Nuevo Servicio: Migración de infraestructura a la Nube con 20% de descuento.</span>
+            <span>⚡ Soporte IT 24/7 activo. Tiempos de respuesta menores a 15 minutos.</span>
+            <span>🎨 Renueva la interfaz de tu E-commerce con nuestro equipo de Diseño Web.</span>
+        </div>
+
+        <div class="header-inner">
+            <a href="#inicio" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" aria-hidden="true">
+                    <path d="M20 3 35 11.5v17L20 37 5 28.5v-17Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                    <path d="M13 17a7 7 0 0 1 14 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    <rect x="11" y="17" width="4" height="7" rx="1.5" fill="currentColor"/>
+                    <rect x="25" y="17" width="4" height="7" rx="1.5" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">Tell<span class="accent">center</span>/</span>
+            </a>
+
+            <!-- Menú móvil sin JavaScript -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú"><span></span></label>
+
+            <nav class="main-nav">
+                <a href="#inicio" class="active">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+            <a href="login.html" class="btn-access">Acceso Empleados</a>
+        </div>
+    </header>
+
+    <!-- ===== HERO (de index.html) ===== -->
+    <section class="hero" id="inicio">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80" alt="">
+        <div class="hero-content">
+            <h1>Soluciones Digitales y Asistencia Remota <span class="accent">desde El Salvador</span></h1>
+            <p class="hero-tagline">Tu equipo de soporte, nube y diseño</p>
+            <p class="hero-text">Agencia freelance especializada en infraestructura tecnológica, diseño de productos y soporte integral en línea.</p>
+            <a href="#contacto" class="btn-pill">Cotizar proyecto <span class="btn-arrow">&rarr;</span></a>
+        </div>
+    </section>
+
+    <!-- ===== CIFRAS ===== -->
+    <section class="stats">
+        <div class="stat">
+            <span class="stat-value">24/7</span>
+            <span class="stat-label">Soporte técnico activo</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">&lt;15 min</span>
+            <span class="stat-label">Tiempo de respuesta</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">99.9%</span>
+            <span class="stat-label">Uptime en la nube</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">4</span>
+            <span class="stat-label">Áreas especializadas</span>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS (de servicios.html) ===== -->
+    <section class="section" id="servicios">
+        <div class="section-inner">
+            <p class="eyebrow">Nuestros Servicios</p>
+            <h2 class="section-title">Soluciones de Soporte y Diseño <span class="accent">para tu empresa</span></h2>
+
+            <h3 class="group-title">Servicios de Soporte</h3>
+            <div class="card-grid">
+                <article class="card">
+                    <div class="card-icon">📞</div>
+                    <h4>Supervisión de Front Desk</h4>
+                    <p>Lideramos, motivamos y damos seguimiento diario a tu equipo de Front Desk: control de flujo de llamadas, cumplimiento de KPIs (AHT, llamadas atendidas, calidad), apoyo en casos complejos con pacientes y coordinación con otras áreas.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🛠️</div>
+                    <h4>Soporte Técnico IT 24/7</h4>
+                    <p>Mesa de ayuda con tiempos de respuesta menores a 15 minutos, disponible también en horario nocturno.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">☁️</div>
+                    <h4>Gestión de Servidores y Backups</h4>
+                    <p>Monitoreo, mantenimiento y respaldo de tu infraestructura en la nube.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">💬</div>
+                    <h4>Atención al Cliente Multicanal</h4>
+                    <p>Llamadas, chat y correo, con los mismos estándares de calidad y tiempos de respuesta.</p>
+                </article>
+            </div>
+
+            <h3 class="group-title">Servicios de Diseño</h3>
+            <div class="card-grid">
+                <article class="card">
+                    <div class="card-icon">🌐</div>
+                    <h4>Diseño y Desarrollo Web</h4>
+                    <p>Sitios y aplicaciones web a la medida de tu negocio, con enfoque en usabilidad.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🛍️</div>
+                    <h4>Diseño de Tiendas E-commerce</h4>
+                    <p>Interfaces de venta en línea pensadas para convertir visitas en clientes.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">🎨</div>
+                    <h4>Identidad de Marca</h4>
+                    <p>Logotipos, paletas de color y lineamientos visuales para tu empresa.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">📑</div>
+                    <h4>Presentaciones y Material Corporativo</h4>
+                    <p>Plantillas y piezas gráficas para comunicar tu marca con consistencia.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NOSOTROS (de cultura.html, equipos.html y el carrusel de index.html) ===== -->
+    <section class="section section-alt" id="nosotros">
+        <div class="section-inner about">
+            <div class="about-text">
+                <p class="eyebrow">Nosotros</p>
+                <h2 class="section-title">Nuestro entorno <span class="accent">de trabajo</span></h2>
+                <p>Tellcenter nació como una agencia freelance con un objetivo claro: acompañar a nuestros clientes con soluciones tecnológicas confiables y un equipo humano cercano.</p>
+                <p>Trabajamos desde El Salvador con la flexibilidad de operar en remoto o desde nuestras oficinas, siempre conectados a la infraestructura en la nube que mantiene a nuestros equipos y clientes sincronizados.</p>
+                <p>Desde el primer día notarás nuestra cultura: equipos cercanos, herramientas modernas y un ambiente pensado para que el trabajo de soporte, diseño y gestión de proyectos fluya sin fricciones, sin importar en qué parte del mundo esté tu equipo.</p>
+            </div>
+
+            <!-- Carrusel: cambia de foto solo con CSS -->
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=80" alt="Persona trabajando en su laptop">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Equipo Tellcenter colaborando">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Espacio de trabajo Tellcenter">
+            </div>
+        </div>
+
+        <div class="section-inner">
+            <h3 class="group-title">Equipos Tellcenter</h3>
+            <div class="area-grid">
+                <div class="area">
+                    <span class="area-num">01 · 💻</span>
+                    <h4>Cloud &amp; Infraestructura</h4>
+                    <p>Administra servidores, backups y la plataforma híbrida de sincronización multinube.</p>
+                </div>
+                <div class="area">
+                    <span class="area-num">02 · 🎧</span>
+                    <h4>Soporte Técnico</h4>
+                    <p>Atención IT 24/7, con tiempos de respuesta menores a 15 minutos.</p>
+                </div>
+                <div class="area">
+                    <span class="area-num">03 · 🎨</span>
+                    <h4>Diseño &amp; E-commerce</h4>
+                    <p>Renueva interfaces y da soporte a las tiendas en línea de nuestros clientes.</p>
+                </div>
+                <div class="area">
+                    <span class="area-num">04 · 📋</span>
+                    <h4>Consultoría &amp; Proyectos</h4>
+                    <p>Acompaña a cada cliente desde la cotización hasta la entrega final.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO (de contacto.html) ===== -->
+    <section class="section" id="contacto">
+        <div class="section-inner contact">
+            <div class="contact-info">
+                <p class="eyebrow">Contacto</p>
+                <h2 class="section-title">Contáctanos y <span class="accent">cotiza tu proyecto</span></h2>
+                <p>¿Eres parte de otra empresa o quieres más información sobre nuestros servicios? Escríbenos y nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
+                <ul class="contact-list">
+                    <li><span>📍</span> San Salvador, El Salvador</li>
+                    <li><span>✉️</span> contacto@tellcenter.com</li>
+                    <li><span>🕑</span> Soporte disponible 24/7</li>
+                </ul>
+            </div>
+
+            <form class="contact-form" action="#" method="post">
+                <div class="form-row">
+                    <div class="field">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="field">
+                        <label for="puesto">Puesto laboral *</label>
+                        <input type="text" id="puesto" name="puesto" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="compania">Compañía *</label>
+                        <input type="text" id="compania" name="compania" required>
+                    </div>
+                    <div class="field">
+                        <label for="correo">Correo electrónico *</label>
+                        <input type="email" id="correo" name="correo" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="telefono">Teléfono *</label>
+                    <div class="phone-row">
+                        <select id="pais" name="pais" aria-label="Código de país">
+                            <option value="+503">🇸🇻 +503</option>
+                            <option value="+502">🇬🇹 +502</option>
+                            <option value="+504">🇭🇳 +504</option>
+                            <option value="+505">🇳🇮 +505</option>
+                            <option value="+506">🇨🇷 +506</option>
+                        </select>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="servicio">Servicios de interés *</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="private_space">Private Space</option>
+                        <option value="cloud">Servidores en la Nube</option>
+                        <option value="soporte">Soporte IT</option>
+                        <option value="ecommerce">Diseño &amp; E-commerce</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="mensaje">Cuéntanos sobre tu proyecto</label>
+                    <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn-pill">Enviar <span class="btn-arrow">&rarr;</span></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="#inicio" class="logo">
+                <span class="logo-text">Tell<span class="accent">center</span>/</span>
+            </a>
+            <nav class="footer-nav">
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+                <a href="login.html">Acceso Empleados</a>
+            </nav>
+            <p class="copyright">&copy; 2026 Tellcenter. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

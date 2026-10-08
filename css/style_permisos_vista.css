@@ -1,0 +1,99 @@
+/* =========================================================
+   Tellcenter - Aprobar permisos
+   Se carga DESPUÉS de style_portal_empleado.css
+   ========================================================= */
+
+/* ===== ENCABEZADO ===== */
+.pv-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 26px 40px 6px;
+}
+.pv-top h1 { font-size: 2em; font-weight: 500; }
+.pv-link { color: var(--accent-dark); font-weight: 600; white-space: nowrap; }
+.pv-link:hover { text-decoration: underline; }
+.pv-intro { padding: 0 40px; color: var(--muted); margin-bottom: 20px; }
+
+/* ===== LISTA DE SOLICITUDES ===== */
+.pv-list { display: grid; gap: 14px; padding: 0 40px; max-width: 980px; }
+.pv-item {
+    display: flex; align-items: center; gap: 20px;
+    background: var(--card); border-radius: 10px;
+    padding: 20px 24px;
+    border-left: 4px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 31, 63, 0.05);
+    transition: background 0.25s, border-color 0.25s;
+}
+
+.pv-av {
+    width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+    background: #cfe9ee; color: #00707a;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+}
+.pv-info { flex: 1; min-width: 0; }
+.pv-info h3 { font-size: 1.08em; }
+.pv-info p { color: var(--muted); font-size: 0.93em; margin-top: 2px; }
+
+/* Tipo de permiso */
+.pv-pill {
+    display: inline-block; margin-left: 8px; vertical-align: middle;
+    font-size: 0.7em; font-weight: 600;
+    padding: 3px 10px; border-radius: 10px;
+    background: #e3f7f9; color: var(--accent-dark);
+}
+.pill-med { background: #fde8e8; color: #c43c3c; }
+.pill-per { background: #ede7ff; color: #6b4bd8; }
+
+/* ===== BOTONES ===== */
+.pv-radio { display: none; }
+.pv-acts { display: flex; gap: 8px; flex-shrink: 0; }
+.pv-btn {
+    padding: 10px 20px; border-radius: 30px;
+    font-weight: 600; font-size: 0.9em; cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.pv-btn:hover { transform: translateY(-1px); }
+.pv-ok { background: #10b981; color: #fff; }
+.pv-ok:hover { background: #0e9f6e; }
+.pv-no { border: 1px solid #ef4444; color: #ef4444; }
+.pv-no:hover { background: #ef4444; color: #fff; }
+
+/* ===== RESULTADO (aparece al aprobar o rechazar) ===== */
+.pv-res {
+    display: none; align-items: center; gap: 14px; flex-shrink: 0;
+    font-weight: 600;
+}
+.res-ok { color: #0b8a5f; }
+.res-no { color: #c0392b; }
+.pv-undo {
+    font-weight: 500; font-size: 0.85em; color: var(--muted);
+    text-decoration: underline; cursor: pointer;
+}
+
+/* Aprobado */
+.r-ok:checked ~ .pv-acts { display: none; }
+.r-ok:checked ~ .res-ok { display: flex; }
+.pv-item:has(.r-ok:checked) { background: #f1fbf7; border-left-color: #10b981; }
+
+/* Rechazado */
+.r-no:checked ~ .pv-acts { display: none; }
+.r-no:checked ~ .res-no { display: flex; }
+.pv-item:has(.r-no:checked) { background: #fdf3f3; border-left-color: #ef4444; }
+
+/* ===== HISTORIAL ===== */
+.pv-history { padding: 34px 0 40px; }
+.pv-history h2 { padding: 0 40px; font-size: 1.2em; color: var(--muted); margin-bottom: 14px; }
+.pv-past { padding: 14px 24px; box-shadow: none; border: 1px solid var(--line); }
+.pv-past .pv-av { width: 38px; height: 38px; font-size: 0.85em; }
+.pv-status { flex-shrink: 0; font-size: 0.85em; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+.st-ok { background: #e6f8f1; color: #0b8a5f; }
+.st-no { background: #fde8e8; color: #c43c3c; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .pv-top { padding: 22px 20px 6px; }
+    .pv-intro, .pv-list, .pv-history h2 { padding-left: 20px; padding-right: 20px; }
+    .pv-item { flex-wrap: wrap; gap: 14px; padding: 18px; }
+    .pv-acts, .pv-res { width: 100%; }
+    .pv-btn { flex: 1; text-align: center; }
+}

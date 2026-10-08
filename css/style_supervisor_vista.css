@@ -1,0 +1,129 @@
+/* =========================================================
+   Tellcenter - Vista Supervisor
+   Se carga DESPUÉS de style_portal_empleado.css
+   (de ahí vienen el sidebar, los colores y las ventanas emergentes)
+   ========================================================= */
+
+/* Colores de estado */
+:root {
+    --on: #10b981;      --on-bg: #e6f8f1;    --on-text: #0b8a5f;
+    --call: #3b82f6;    --call-bg: #e7f0ff;  --call-text: #2459c9;
+    --pause: #f59e0b;   --pause-bg: #fff4de; --pause-text: #a86200;
+    --off: #94a3b8;     --off-bg: #eef1f4;   --off-text: #64748b;
+    --late: #ef4444;
+}
+
+/* ===== ENCABEZADO ===== */
+.sv-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 26px 36px 0;
+}
+.sv-top h1 { font-size: 2em; font-weight: 500; }
+.live { display: flex; align-items: center; gap: 8px; color: var(--on); font-weight: 600; font-size: 0.9em; }
+.live i {
+    width: 9px; height: 9px; border-radius: 50%; background: var(--on);
+    animation: pulse 1.6s infinite;
+}
+.live small { color: #8a99a6; font-weight: 400; }
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+    70%  { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ===== PESTAÑAS DE VISTAS ===== */
+.sv-views {
+    display: flex; align-items: flex-end; gap: 6px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--line);
+    overflow-x: auto;
+}
+.sv-view {
+    padding: 11px 18px; border-radius: 8px 8px 0 0;
+    color: var(--muted); font-size: 0.95em; white-space: nowrap; cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+}
+.sv-view:hover { color: var(--navy); background: rgba(255, 255, 255, 0.5); }
+.sv-view small { color: #8a99a6; font-size: 0.8em; margin-left: 4px; }
+.sv-add { padding: 11px 18px; color: var(--accent-dark); font-weight: 600; white-space: nowrap; }
+.sv-add:hover { text-decoration: underline; }
+
+/* Pestaña activa */
+#v-soporte:checked ~ .sv-views .view-soporte,
+#v-cloud:checked ~ .sv-views .view-cloud,
+#v-carlos:checked ~ .sv-views .view-carlos {
+    background: var(--card); color: var(--navy); font-weight: 600;
+    box-shadow: 0 -3px 0 var(--accent) inset;
+}
+
+/* Solo se muestra el panel de la pestaña activa */
+.sv-panel { display: none; padding: 20px 36px 36px; }
+#v-soporte:checked ~ .panel-soporte,
+#v-cloud:checked ~ .panel-cloud,
+#v-carlos:checked ~ .panel-carlos { display: block; }
+
+/* ===== CONTADORES ===== */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+.kpi {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--card); border-radius: 12px; padding: 16px 18px;
+    box-shadow: 0 2px 6px rgba(0, 31, 63, 0.05);
+}
+.kpi b { display: block; font-size: 1.6em; line-height: 1; }
+.kpi small { color: #8a99a6; font-size: 0.85em; }
+.kpi-ico {
+    width: 42px; height: 42px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.2em;
+}
+.k-on { background: var(--on-bg); }
+.k-call { background: var(--call-bg); }
+.k-pause { background: var(--pause-bg); }
+.k-off { background: var(--off-bg); }
+
+/* ===== TABLA ===== */
+.table-card {
+    background: var(--card); border-radius: 12px; overflow-x: auto;
+    box-shadow: 0 2px 6px rgba(0, 31, 63, 0.05);
+}
+table { width: 100%; border-collapse: collapse; min-width: 760px; }
+th {
+    text-align: left; padding: 14px 18px;
+    font-size: 0.75em; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase;
+    color: #8a99a6; background: #f8fafb; border-bottom: 1px solid #edf1f4;
+}
+td { padding: 13px 18px; border-bottom: 1px solid #f0f3f6; font-size: 0.93em; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #fafcfd; }
+
+.emp { display: flex; align-items: center; gap: 10px; }
+.av {
+    width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+    background: #cfe9ee; color: #00707a;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.75em;
+}
+
+/* Etiquetas de estado */
+.st {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.85em; font-weight: 500; white-space: nowrap;
+}
+.st i { width: 8px; height: 8px; border-radius: 50%; }
+.st-on    { background: var(--on-bg);    color: var(--on-text); }    .st-on i    { background: var(--on); }
+.st-call  { background: var(--call-bg);  color: var(--call-text); }  .st-call i  { background: var(--call); }
+.st-pause { background: var(--pause-bg); color: var(--pause-text); } .st-pause i { background: var(--pause); }
+.st-off   { background: var(--off-bg);   color: var(--off-text); }   .st-off i   { background: var(--off); }
+
+.timer { font-family: 'Consolas', 'Courier New', monospace; font-weight: 600; }
+.late { color: var(--late); font-size: 0.8em; font-weight: 600; margin-left: 4px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+    .sv-top { padding: 22px 20px 0; flex-direction: column; align-items: flex-start; }
+    .sv-views { padding: 14px 12px 0; }
+    .sv-panel { padding: 20px; }
+}

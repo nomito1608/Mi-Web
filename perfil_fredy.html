@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil y Workspace - Fredy Ramos | Tellcenter</title>
+    
+    <!-- Fuentes corporativas Outfit e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Hojas de estilo asociadas a la subcarpeta css/ -->
+    <link rel="stylesheet" href="css/style_portal_empleado.css">
+    <link rel="stylesheet" href="css/style_perfil_tareas.css">
+</head>
+<body>
+
+    <!-- ===== SIDEBAR EMBEDDED ===== -->
+    <aside class="sidebar">
+        <a href="index.html" class="side-logo">
+            <span style="font-size:1.4em; font-weight:700; color:#fff;">Tell<span style="color:var(--accent, #00d4e0);">center</span>/</span>
+        </a>
+
+        <nav class="nav">
+            <details>
+                <summary><span class="ico">📰</span> Portal General <span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="portal_empleado.html">Noticias y Anuncios</a>
+                </div>
+            </details>
+
+            <details open>
+                <summary><span class="ico">💼</span> Área de Trabajo <span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="perfil_fredy.html" class="active">Mis Tareas y Perfil</a>
+                    <a href="control_horario.html">Control Horario</a>
+                    <a href="permisos_vista.html">Solicitudes y Permisos</a>
+                </div>
+            </details>
+
+            <details>
+                <summary><span class="ico">🛡️</span> Gestión <span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="supervisor_vista.html">Vista Supervisor <span class="role">Admin</span></a>
+                </div>
+            </details>
+        </nav>
+
+        <div class="side-user">
+            <div class="avatar">FR</div>
+            <div>
+                <b style="font-size:0.95em;">Fredy Ramos</b>
+                <small>Desarrollador Web</small>
+            </div>
+        </div>
+
+        <div class="side-bottom">
+            <a href="#" id="logoutBtn" title="Cerrar sesión">🚪 Salir</a>
+        </div>
+    </aside>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="content">
+        
+        <header class="topbar">
+            <div>
+                <h1>Workspace Personal</h1>
+                <small style="color:var(--muted);">Gestión de proyectos y tareas individuales</small>
+            </div>
+            <input type="search" id="taskSearch" class="search" placeholder="Buscar tarea o proyecto...">
+        </header>
+
+        <div style="padding: 0 40px 40px;">
+            
+            <!-- Banner principal de perfil -->
+            <section class="profile-banner">
+                <div class="user-main-info">
+                    <div class="avatar-large">FR</div>
+                    <div class="user-meta-details">
+                        <h2>Fredy Alexander Ramos</h2>
+                        <span class="user-role-badge">💻 Software & Web Developer</span>
+                        <p style="font-size:0.88em; margin-top:8px; opacity:0.9;">
+                            Departamento: IT & Desarrollo Digital · Sede San Salvador
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align:right; min-width:200px;">
+                    <span style="font-size:0.85em; opacity:0.85;">Sprints Q4 - Avance General</span>
+                    <div style="font-size:1.4em; font-weight:700; margin-top:2px;" id="progressText">75% Completado</div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progressBar" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KPIs Rápidos -->
+            <section class="stat-card-grid">
+                <div class="stat-box">
+                    <div>
+                        <div class="stat-box-val" id="countPending">3</div>
+                        <div class="stat-box-lbl">Pendientes</div>
+                    </div>
+                    <span class="stat-ico">⏳</span>
+                </div>
+                <div class="stat-box">
+                    <div>
+                        <div class="stat-box-val" id="countInProgress">2</div>
+                        <div class="stat-box-lbl">En Proceso</div>
+                    </div>
+                    <span class="stat-ico">⚙️</span>
+                </div>
+                <div class="stat-box">
+                    <div>
+                        <div class="stat-box-val" id="countCompleted">6</div>
+                        <div class="stat-box-lbl">Completadas</div>
+                    </div>
+                    <span class="stat-ico">✅</span>
+                </div>
+                <div class="stat-box">
+                    <div>
+                        <div class="stat-box-val">98.4%</div>
+                        <div class="stat-box-lbl">Eficiencia de Entrega</div>
+                    </div>
+                    <span class="stat-ico">🎯</span>
+                </div>
+            </section>
+
+            <!-- Espacio de Tareas (Workspace) -->
+            <section class="main-content" style="margin:0; border:1px solid var(--line, #d6dee5);">
+                
+                <div class="top-header" style="justify-content:space-between;">
+                    <div class="team-title">
+                        <div class="team-icon">📋</div>
+                        <h2>Mis Asignaciones Activas</h2>
+                    </div>
+
+                    <div class="view-tabs">
+                        <button class="tab active" data-filter="all">Todas</button>
+                        <button class="tab" data-filter="pending">Pendientes</button>
+                        <button class="tab" data-filter="completed">Completadas</button>
+                    </div>
+                </div>
+
+                <div class="task-workspace">
+                    
+                    <div class="task-columns-header">
+                        <div class="col-main" style="padding-left:36px;">TAREA / MÓDULO</div>
+                        <div class="col-meta">PRIORIDAD</div>
+                        <div class="col-meta">ESTADO</div>
+                        <div class="col-meta">FECHA LÍMITE</div>
+                    </div>
+
+                    <!-- Grupo 1: Alta Prioridad -->
+                    <div class="task-group">
+                        <div class="group-header">
+                            <span class="group-badge badge-red">CRÍTICO / ALTA</span>
+                        </div>
+
+                        <div class="task-row" data-status="pending">
+                            <button class="check-btn" onclick="toggleTask(this)"></button>
+                            <div class="task-name">
+                                <span class="color-square square-red"></span>
+                                Integración de autenticación de login de empleados en portal
+                            </div>
+                            <div class="task-meta"><span class="stage-pill stage-exec">Alta</span></div>
+                            <div class="task-meta"><span class="stage-pill stage-init">En Desarrollo</span></div>
+                            <div class="task-meta" style="font-size:0.85em; color:var(--muted);">28 Sep 2026</div>
+                        </div>
+
+                        <div class="task-row" data-status="pending">
+                            <button class="check-btn" onclick="toggleTask(this)"></button>
+                            <div class="task-name">
+                                <span class="color-square square-red"></span>
+                                Optimización de carga de hojas de estilo CSS en Tellcenter HUB
+                            </div>
+                            <div class="task-meta"><span class="stage-pill stage-exec">Alta</span></div>
+                            <div class="task-meta"><span class="stage-pill stage-plan">Revisión</span></div>
+                            <div class="task-meta" style="font-size:0.85em; color:var(--muted);">30 Sep 2026</div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo 2: Desarrollo General -->
+                    <div class="task-group">
+                        <div class="group-header">
+                            <span class="group-badge badge-purple">DESARROLLO CONTINUO</span>
+                        </div>
+
+                        <div class="task-row" data-status="pending">
+                            <button class="check-btn" onclick="toggleTask(this)"></button>
+                            <div class="task-name">
+                                <span class="color-square square-purple"></span>
+                                Maquetación responsiva del módulo de Control Horario
+                            </div>
+                            <div class="task-meta"><span class="stage-pill stage-plan">Media</span></div>
+                            <div class="task-meta"><span class="stage-pill stage-exec">En Proceso</span></div>
+                            <div class="task-meta" style="font-size:0.85em; color:var(--muted);">05 Oct 2026</div>
+                        </div>
+
+                        <div class="task-row task-item-done" data-status="completed">
+                            <button class="check-btn checked" onclick="toggleTask(this)">✓</button>
+                            <div class="task-name">
+                                <span class="color-square square-purple"></span>
+                                Configuración de endpoints y API Node.js para formulario de contacto
+                            </div>
+                            <div class="task-meta"><span class="stage-pill stage-plan">Media</span></div>
+                            <div class="task-meta"><span class="stage-pill stage-init" style="background:#d1fae5; color:#065f46;">Completado</span></div>
+                            <div class="task-meta" style="font-size:0.85em; color:var(--muted);">22 Sep 2026</div>
+                        </div>
+
+                        <div class="task-row task-item-done" data-status="completed">
+                            <button class="check-btn checked" onclick="toggleTask(this)">✓</button>
+                            <div class="task-name">
+                                <span class="color-square square-yellow"></span>
+                                Corrección de rutas relativas y diseño responsive en index.html
+                            </div>
+                            <div class="task-meta"><span class="stage-pill stage-plan">Baja</span></div>
+                            <div class="task-meta"><span class="stage-pill stage-init" style="background:#d1fae5; color:#065f46;">Completado</span></div>
+                            <div class="task-meta" style="font-size:0.85em; color:var(--muted);">15 Sep 2026</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- SCRIPT DINÁMICO DE INTERACCIÓN Y AUTENTICACIÓN -->
+    <script>
+        // 1. Verificación de sesión iniciada
+        document.addEventListener('DOMContentLoaded', function() {
+            const sesionActiva = sessionStorage.getItem('sesionIniciada');
+            if (!sesionActiva) {
+                // Redirigir al login si se intenta ingresar sin autenticarse
+                window.location.href = 'login.html';
+            }
+        });
+
+        // 2. Cierre de sesión
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        });
+
+        // 3. Marcar / desmarcar tareas interactivamente
+        function toggleTask(btn) {
+            const row = btn.closest('.task-row');
+            const isChecked = btn.classList.contains('checked');
+
+            if (isChecked) {
+                btn.classList.remove('checked');
+                btn.textContent = '';
+                row.classList.remove('task-item-done');
+                row.setAttribute('data-status', 'pending');
+            } else {
+                btn.classList.add('checked');
+                btn.textContent = '✓';
+                row.classList.add('task-item-done');
+                row.setAttribute('data-status', 'completed');
+            }
+            updateMetrics();
+        }
+
+        // 4. Actualizar contadores y barra de progreso dinámicamente
+        function updateMetrics() {
+            const totalTasks = document.querySelectorAll('.task-row').length;
+            const completedTasks = document.querySelectorAll('.task-row.task-item-done').length;
+            const pendingTasks = totalTasks - completedTasks;
+
+            document.getElementById('countPending').textContent = pendingTasks;
+            document.getElementById('countCompleted').textContent = completedTasks;
+
+            const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+            document.getElementById('progressText').textContent = percentage + '% Completado';
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        // 5. Filtros por pestaña (Todas / Pendientes / Completadas)
+        const tabs = document.querySelectorAll('.view-tabs .tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.getAttribute('data-filter');
+                const rows = document.querySelectorAll('.task-row');
+
+                rows.forEach(row => {
+                    if (filter === 'all') {
+                        row.style.display = 'flex';
+                    } else if (filter === 'pending') {
+                        row.style.display = row.classList.contains('task-item-done') ? 'none' : 'flex';
+                    } else if (filter === 'completed') {
+                        row.style.display = row.classList.contains('task-item-done') ? 'flex' : 'none';
+                    }
+                });
+            });
+        });
+
+        // 6. Búsqueda en tiempo real
+        document.getElementById('taskSearch').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('.task-row');
+
+            rows.forEach(row => {
+                const text = row.querySelector('.task-name').textContent.toLowerCase();
+                row.style.display = text.includes(term) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

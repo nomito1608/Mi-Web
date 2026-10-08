@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Supervisor | Portal de Empleados Tellcenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 1) Estilos base del portal: sidebar, colores y ventanas emergentes -->
+    <link rel="stylesheet" href="css/style_portal_empleado.css">
+    <!-- 2) Estilos propios de esta vista -->
+    <link rel="stylesheet" href="css/style_supervisor_vista.css">
+</head>
+<body>
+
+    <!-- Menú móvil sin JavaScript -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <!-- Barra superior (solo en celular) -->
+    <header class="mobile-bar">
+        <img src="img/logo-tellcenter-blanco.png" alt="Tellcenter">
+        <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú"><span></span></label>
+    </header>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <a href="portal_empleado.html" class="side-logo">
+            <img src="img/logo-tellcenter-blanco.png" alt="Tellcenter">
+        </a>
+
+        <nav class="nav">
+            <details>
+                <summary><span class="ico">🔐</span>Accesos<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="#">Mi perfil</a>
+                    <a href="#">Roles y permisos <span class="role">Manager</span></a>
+                </div>
+            </details>
+
+            <details>
+                <summary><span class="ico">📰</span>Portal de Noticias<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="portal_empleado.html">Noticias</a>
+                    <a href="#">Recursos</a>
+                    <a href="portal_empleado.html#modal-buzon">Buzón de sugerencias <span class="popup">↗</span></a>
+                    <a href="portal_empleado.html#modal-referido">Referir a un amigo <span class="popup">↗</span></a>
+                </div>
+            </details>
+
+            <details open>
+                <summary><span class="ico">⏱️</span>Control de Horarios<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="control_horario.html">Marcar entrada/salida</a>
+                    <a href="portal_empleado.html#modal-permiso">Solicitar permisos <span class="popup">↗</span></a>
+                    <a href="supervisor_vista.html" class="active">Vista Supervisor <span class="role">Supervisor</span></a>
+                    <a href="permisos_vista.html">Aprobar permisos <span class="role">Supervisor</span></a>
+                </div>
+            </details>
+
+            <details>
+                <summary><span class="ico">📦</span>Inventario<span class="chev">›</span></summary>
+                <div class="sub">
+                    <a href="#">Equipos asignados</a>
+                    <a href="#">Solicitar equipo</a>
+                </div>
+            </details>
+        </nav>
+
+        <div class="side-user">
+            <div class="avatar">DV</div>
+            <div>Diego V.<small>Supervisor · Soporte Técnico</small></div>
+        </div>
+        <div class="side-bottom">
+            <a href="login.html" title="Cerrar sesión">⏻</a>
+            <a href="#" title="Notificaciones">🔔</a>
+            <a href="#" title="Ayuda">❓</a>
+        </div>
+    </aside>
+
+    <!-- ===== CONTENIDO: VISTA SUPERVISOR ===== -->
+    <main class="content">
+
+        <!-- Cada vista (pestaña) es un radio: cambian sin JavaScript -->
+        <input type="radio" name="vista" id="v-soporte" class="filter" checked>
+        <input type="radio" name="vista" id="v-cloud" class="filter">
+        <input type="radio" name="vista" id="v-carlos" class="filter">
+
+        <div class="sv-top">
+            <h1>Vista Supervisor</h1>
+            <div class="live"><i></i>En vivo <small>· actualizado hace 5 s</small></div>
+        </div>
+
+        <div class="sv-views">
+            <label for="v-soporte" class="sv-view view-soporte">🎧 Mi equipo: Soporte Técnico <small>8</small></label>
+            <label for="v-cloud" class="sv-view view-cloud">☁️ Cloud &amp; Infraestructura <small>6</small></label>
+            <label for="v-carlos" class="sv-view view-carlos">🎨 Equipo de Carlos V. <small>5</small></label>
+            <a href="#modal-vista" class="sv-add">＋ Agregar vista</a>
+        </div>
+
+        <!-- ===== VISTA 1: SOPORTE TÉCNICO ===== -->
+        <section class="sv-panel panel-soporte">
+            <div class="kpis">
+                <div class="kpi"><div class="kpi-ico k-on">🟢</div><div><b>4</b><small>Trabajando</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-call">📞</div><div><b>1</b><small>En llamada</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-pause">☕</div><div><b>2</b><small>En pausa</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-off">⚪</div><div><b>1</b><small>Desconectado</small></div></div>
+            </div>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr><th>Empleado</th><th>Estado actual</th><th>Tiempo en estado</th><th>Hora de entrada</th><th>Tickets hoy</th><th>Área asignada</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><div class="emp"><span class="av">OB</span>Octavio Bernabé</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">02:14:33</td><td>08:00 AM</td><td>12</td><td>Soporte IT</td></tr>
+                        <tr><td><div class="emp"><span class="av">LH</span>Luis Hernández</div></td><td><span class="st st-call"><i></i>En llamada</span></td><td class="timer">00:06:12</td><td>08:02 AM</td><td>9</td><td>Soporte IT</td></tr>
+                        <tr><td><div class="emp"><span class="av">CV</span>Carlos Velado</div></td><td><span class="st st-pause"><i></i>En pausa (Almuerzo)</span></td><td class="timer">00:21:40</td><td>08:15 AM <span class="late">+15 min</span></td><td>7</td><td>Desarrollo Web</td></tr>
+                        <tr><td><div class="emp"><span class="av">MS</span>María Sánchez</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">01:02:09</td><td>07:58 AM</td><td>11</td><td>Soporte IT</td></tr>
+                        <tr><td><div class="emp"><span class="av">SC</span>Sofía Castillo</div></td><td><span class="st st-pause"><i></i>En pausa (Break)</span></td><td class="timer">00:08:51</td><td>08:00 AM</td><td>8</td><td>Soporte IT</td></tr>
+                        <tr><td><div class="emp"><span class="av">JR</span>José Ramírez</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">00:47:25</td><td>08:05 AM</td><td>6</td><td>Soporte IT</td></tr>
+                        <tr><td><div class="emp"><span class="av">DP</span>Daniel Pérez</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">01:31:02</td><td>07:55 AM</td><td>10</td><td>Soporte IT</td></tr>
+                        <tr><td><div class="emp"><span class="av">AM</span>Ana Martínez</div></td><td><span class="st st-off"><i></i>Desconectado</span></td><td class="timer">--:--:--</td><td>--:--</td><td>0</td><td>Infraestructura Cloud</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== VISTA 2: CLOUD & INFRAESTRUCTURA ===== -->
+        <section class="sv-panel panel-cloud">
+            <div class="kpis">
+                <div class="kpi"><div class="kpi-ico k-on">🟢</div><div><b>3</b><small>Trabajando</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-call">📞</div><div><b>1</b><small>En llamada</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-pause">☕</div><div><b>1</b><small>En pausa</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-off">⚪</div><div><b>1</b><small>Desconectado</small></div></div>
+            </div>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr><th>Empleado</th><th>Estado actual</th><th>Tiempo en estado</th><th>Hora de entrada</th><th>Tickets hoy</th><th>Área asignada</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><div class="emp"><span class="av">RF</span>Roberto Flores</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">03:05:10</td><td>07:30 AM</td><td>5</td><td>Infraestructura Cloud</td></tr>
+                        <tr><td><div class="emp"><span class="av">KM</span>Karla Méndez</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">01:40:22</td><td>08:00 AM</td><td>4</td><td>Infraestructura Cloud</td></tr>
+                        <tr><td><div class="emp"><span class="av">AM</span>Andrés Molina</div></td><td><span class="st st-call"><i></i>En llamada</span></td><td class="timer">00:12:48</td><td>08:10 AM <span class="late">+10 min</span></td><td>3</td><td>Servidores y Backups</td></tr>
+                        <tr><td><div class="emp"><span class="av">GR</span>Gabriela Rivas</div></td><td><span class="st st-pause"><i></i>En pausa (Break)</span></td><td class="timer">00:04:30</td><td>08:00 AM</td><td>6</td><td>Infraestructura Cloud</td></tr>
+                        <tr><td><div class="emp"><span class="av">MT</span>Miguel Torres</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">00:55:03</td><td>08:00 AM</td><td>2</td><td>Servidores y Backups</td></tr>
+                        <tr><td><div class="emp"><span class="av">PG</span>Paola Guzmán</div></td><td><span class="st st-off"><i></i>Desconectado</span></td><td class="timer">--:--:--</td><td>--:--</td><td>0</td><td>Infraestructura Cloud</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== VISTA 3: EQUIPO DE CARLOS V. ===== -->
+        <section class="sv-panel panel-carlos">
+            <div class="kpis">
+                <div class="kpi"><div class="kpi-ico k-on">🟢</div><div><b>3</b><small>Trabajando</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-call">📞</div><div><b>0</b><small>En llamada</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-pause">☕</div><div><b>1</b><small>En pausa</small></div></div>
+                <div class="kpi"><div class="kpi-ico k-off">⚪</div><div><b>1</b><small>Desconectado</small></div></div>
+            </div>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr><th>Empleado</th><th>Estado actual</th><th>Tiempo en estado</th><th>Hora de entrada</th><th>Tickets hoy</th><th>Área asignada</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><div class="emp"><span class="av">VC</span>Valeria Cruz</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">02:20:15</td><td>08:00 AM</td><td>4</td><td>Diseño &amp; E-commerce</td></tr>
+                        <tr><td><div class="emp"><span class="av">FO</span>Fernando Ortiz</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">01:12:40</td><td>08:03 AM</td><td>3</td><td>Diseño &amp; E-commerce</td></tr>
+                        <tr><td><div class="emp"><span class="av">LN</span>Lucía Navarro</div></td><td><span class="st st-pause"><i></i>En pausa (Almuerzo)</span></td><td class="timer">00:18:05</td><td>08:00 AM</td><td>5</td><td>Identidad de Marca</td></tr>
+                        <tr><td><div class="emp"><span class="av">RV</span>Ricardo Vega</div></td><td><span class="st st-on"><i></i>Trabajando</span></td><td class="timer">00:33:47</td><td>08:20 AM <span class="late">+20 min</span></td><td>2</td><td>Diseño Web</td></tr>
+                        <tr><td><div class="emp"><span class="av">DM</span>Diana Morales</div></td><td><span class="st st-off"><i></i>Desconectado</span></td><td class="timer">--:--:--</td><td>--:--</td><td>0</td><td>Diseño &amp; E-commerce</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== VENTANA EMERGENTE: AGREGAR VISTA ===== -->
+    <div class="modal-overlay" id="modal-vista">
+        <a href="#" class="modal-backdrop" aria-label="Cerrar"></a>
+        <form class="modal" action="#">
+            <div class="modal-head">
+                <h2>＋ Agregar vista</h2>
+                <p>Elige qué equipo o supervisor quieres ver en tus pestañas.</p>
+                <a href="#" class="modal-close" aria-label="Cerrar">×</a>
+            </div>
+            <div class="modal-body">
+                <span class="modal-label">Tipo de vista</span>
+                <div class="chips">
+                    <input type="radio" name="av-tipo" id="av-equipo" checked><label for="av-equipo">Por equipo</label>
+                    <input type="radio" name="av-tipo" id="av-supervisor"><label for="av-supervisor">Por supervisor</label>
+                </div>
+
+                <label class="modal-label" for="av-sel">Equipo o supervisor</label>
+                <select id="av-sel">
+                    <option>Consultoría &amp; Proyectos</option>
+                    <option>Turno nocturno</option>
+                    <option>Supervisor: Carlos Velado</option>
+                    <option>Supervisor: Adriana</option>
+                </select>
+
+                <label class="modal-label" for="av-nombre">Nombre de la pestaña (opcional)</label>
+                <input type="text" id="av-nombre" placeholder="Ej. Turno nocturno">
+            </div>
+            <div class="modal-foot">
+                <a href="#" class="btn-ghost">Cancelar</a>
+                <a href="#" class="btn-main">Agregar vista</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

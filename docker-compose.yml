@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    container_name: tellcenter-web
+    ports:
+      - "8080:80"
+    restart: always
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: tellcenter-db
+    environment:
+      POSTGRES_USER: tellcenter_user
+      POSTGRES_PASSWORD: tellcenter_pass
+      POSTGRES_DB: tellcenter_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  postgres_data:
